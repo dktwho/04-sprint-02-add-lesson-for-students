@@ -26,8 +26,16 @@ export const deleteDeckTC = (id: string) => (dispatch: Dispatch) => {
   })
 }
 
-export const updateDeckTC = (params: UpdateDeckParams) => (dispatch: Dispatch) => {
-  return decksAPI.updateDeck(params).then((res) => {
+// case - 1: ошибка запроса, axios создает объект ошибки, в response.data помещает ответ сервера
+// case - 2: network error на стороне клиента - axios создает объект ошибки, текст ошибки берем из message
+// case - 3: ошибка вне запроса, в нативном коде, не связана с запросом
+export const updateDeckTC = (params: UpdateDeckParams) => async (dispatch: Dispatch) => {
+  try {
+    const res = await decksAPI.updateDeck(params)
     dispatch(updateDeckAC(res.data))
-  })
+  } catch (e) {
+    console.log({e})
+  }
+
+
 }

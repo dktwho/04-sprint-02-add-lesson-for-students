@@ -17,7 +17,7 @@ export const GlobalError = () => {
         }
       })
     }
-  }, [errorMessage])
+  }, [errorMessage, dispatch])
 
   return <ToastContainer theme='dark' autoClose={3000} />
 }

@@ -14,3 +14,4 @@ export const GlobalError = () => {
 
   return <ToastContainer theme='dark' autoClose={3000} />
 }
+

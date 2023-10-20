@@ -1,5 +1,3 @@
-import { Deck } from '../features/decks/decks-api.ts'
-
 export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 
 const initialState = {

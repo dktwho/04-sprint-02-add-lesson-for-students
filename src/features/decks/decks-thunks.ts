@@ -33,6 +33,7 @@ export const deleteDeckTC = (id: string) => (dispatch: Dispatch) => {
 // case - 3: ошибка вне запроса, в нативном коде, не связана с запросом
 export const updateDeckTC = (params: UpdateDeckParams) => async (dispatch: Dispatch) => {
   try {
+    // throw new Error('code Error!')
     const res = await decksAPI.updateDeck(params)
     dispatch(updateDeckAC(res.data))
   } catch (e) {
